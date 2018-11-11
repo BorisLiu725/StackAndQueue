@@ -13,6 +13,18 @@ public class Array<E> {
 		data = (E[])new Object[capacity];
 		size = 0;
 	}
+	
+	/**
+	 * 给定一个定长数组，包装成一个不定长数组
+	 * */
+	public Array(E[] arr) {
+		data = (E[])new Object[arr.length];
+		for(int i = 0;i<arr.length;i++)
+			data[i] = arr[i];
+		size = arr.length;
+	}
+	
+	
 	/**
 	 * 数组默认容量为10
 	 * */
@@ -167,7 +179,17 @@ public class Array<E> {
 		if(index != -1)
 			remove(index);
 	}
-	
+	/**
+	 * 交换位置为i,j的元素
+	 */
+	public void swap(int i,int j) {
+		if(i<0 || i>=size || j<0 || j>=size)
+			throw new IllegalArgumentException("Index is illegal");
+		E t = data[i];
+		data[i] = data[j];
+		data[j] = t;
+		
+	}
 
 	/**
 	 * 打印数组的详细信息
