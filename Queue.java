@@ -9,4 +9,5 @@ public interface Queue<E> {
 	void enqueue(E e);
 	//得到队首元素（注意：不删除）
 	E getFront();
+	//测试
 }
